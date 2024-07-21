@@ -6,10 +6,10 @@ import org.springframework.http.HttpStatus;
 public class ResponseBuilder {
     private HttpStatus httpStatus;
     private String message = "";
-    private boolean error = false;
+    private MessageType messageType = MessageType.INFO;
     private Object body;
 
-    public ResponseBuilder setStatusCode(HttpStatus httpStatus) {
+    public ResponseBuilder setHttpStatus(HttpStatus httpStatus) {
         this.httpStatus = httpStatus;
         return this;
     }
@@ -19,8 +19,8 @@ public class ResponseBuilder {
         return this;
     }
 
-    public ResponseBuilder setError(boolean error) {
-        this.error = error;
+    public ResponseBuilder setMessageType(MessageType messageType) {
+        this.messageType = messageType;
         return this;
     }
 
@@ -30,6 +30,6 @@ public class ResponseBuilder {
     }
 
     public Response build() {
-        return new Response(httpStatus, message, error, body);
+        return new Response(httpStatus, message, messageType, body);
     }
 }

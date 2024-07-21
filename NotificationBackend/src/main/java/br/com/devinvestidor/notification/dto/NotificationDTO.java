@@ -18,7 +18,7 @@ public class NotificationDTO {
         return !hasCategory();
     }
     private boolean hasCategory() {
-        return category != null;
+        return category != null && category.getId() != null;
     }
 
     public NotificationDTO getEntityWithUserList(List<User> userList) {

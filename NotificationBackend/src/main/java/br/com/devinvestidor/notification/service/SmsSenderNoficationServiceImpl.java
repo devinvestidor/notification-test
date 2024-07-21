@@ -1,11 +1,9 @@
 package br.com.devinvestidor.notification.service;
 
 import br.com.devinvestidor.notification.dto.NotificationDTO;
-import br.com.devinvestidor.notification.entity.Log;
 import br.com.devinvestidor.notification.entity.Channel;
-import br.com.devinvestidor.notification.entity.StatusNotification;
 import br.com.devinvestidor.notification.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.devinvestidor.notification.exception.WithoutPhoneException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +17,7 @@ public class SmsSenderNoficationServiceImpl extends SenderNotificationService {
     public void send(NotificationDTO dto) {
         dto.getUserList().forEach(user -> {
             try {
-                if (user.hasNotPhoneNumber()) throw new Exception("dont have phone");
+                if (user.hasNotPhoneNumber()) throw new WithoutPhoneException();
                 else sendProcess(dto, user);
             } catch (Exception e) {
                 failProcess(dto, user, Channel.SMS);

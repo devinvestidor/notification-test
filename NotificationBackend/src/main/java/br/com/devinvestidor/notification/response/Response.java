@@ -10,13 +10,13 @@ import org.springframework.http.HttpStatus;
 public class Response {
     private int status;
     private String message;
-    private boolean error;
+    private MessageType messageType;
     private Object body;
 
-    public Response(HttpStatus httpStatus, String message, boolean error, Object body) {
+    public Response(HttpStatus httpStatus, String message, MessageType messageType, Object body) {
         this.status = httpStatus.value();
         this.message = message;
-        this.error = error;
+        this.messageType = messageType;
         this.body = body;
     }
 }

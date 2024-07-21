@@ -3,6 +3,7 @@ package br.com.devinvestidor.notification.service;
 import br.com.devinvestidor.notification.dto.NotificationDTO;
 import br.com.devinvestidor.notification.entity.Channel;
 import br.com.devinvestidor.notification.entity.User;
+import br.com.devinvestidor.notification.exception.WithoutEmailException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,7 @@ public class EmailSenderNoficationServiceImpl extends SenderNotificationService 
     public void send(NotificationDTO dto) {
         dto.getUserList().forEach(user -> {
             try {
-                if (user.hasNotEmail()) throw new Exception("dont have email;");
+                if (user.hasNotEmail()) throw new WithoutEmailException();
                 else sendProcess(dto, user);
             } catch (Exception e) {
                 failProcess(dto, user, Channel.EMAIL);

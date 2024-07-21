@@ -4,6 +4,7 @@ import br.com.devinvestidor.notification.dto.NotificationDTO;
 import br.com.devinvestidor.notification.entity.Channel;
 import br.com.devinvestidor.notification.entity.User;
 
+import br.com.devinvestidor.notification.exception.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -36,7 +37,7 @@ public class NotificationServiceImpl implements NotificationService {
 
     @Override
     public void sendNotification(NotificationDTO dto) {
-        if (dto.hasNotCategory()) throw new RuntimeException("Select at least one category");
+        if (dto.hasNotCategory()) throw new ServiceException("Select a category.");
 
         List<User> userList = userService.listByCategory(dto.getCategory());
 
