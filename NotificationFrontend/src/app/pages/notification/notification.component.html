@@ -1,0 +1,18 @@
+<form [formGroup]="formNotification">
+  <h3>Send Notification</h3>
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <mat-select>
+      @for (category of categories; track category) {
+      <mat-option [value]="category.value">{{ category.viewValue }}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Message</mat-label>
+    <textarea matInput placeholder="Ex. Write the message here..."></textarea>
+  </mat-form-field>
+
+  <button mat-flat-button>Send Notification</button>
+</form>

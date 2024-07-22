@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span> Notification Test</span>
+  <span class="fill-remaining-space"></span>
+
+  <button
+    mat-button
+    [routerLink]="['/notification']"
+    routerLinkActive="active-button"
+  >
+    <mat-icon>send</mat-icon>
+    Notification
+  </button>
+
+  <button mat-button [routerLink]="['/log']" routerLinkActive="active-button">
+    <mat-icon>receipt</mat-icon>
+    Log
+  </button>
+
+  <button mat-button [routerLink]="['/about']" routerLinkActive="active-button">
+    <mat-icon>info</mat-icon>
+    About
+  </button>
+</mat-toolbar>

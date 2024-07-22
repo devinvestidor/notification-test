@@ -1,0 +1,16 @@
+.router-container {
+  width: 80%; /* Define a largura como 80% da largura da tela */
+  margin: 20px auto; /* Margem superior de 20px e centraliza o contêiner horizontalmente */
+  padding: 24px; /* Espaçamento interno de 24px para mais espaço */
+  border-radius: 8px; /* Bordas arredondadas */
+  background-color: #ffffff; /* Cor de fundo branca */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+@media (max-width: 768px) {
+  .router-container {
+    width: 90%; /* Ajusta a largura para 90% em telas menores */
+    margin: 10px auto; /* Margem superior de 10px para telas menores */
+    padding: 16px; /* Espaçamento interno de 16px */
+  }
+}
