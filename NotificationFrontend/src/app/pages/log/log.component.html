@@ -1,1 +1,50 @@
-<p>log works!</p>
+<h3>Log Notification</h3>
+
+<div class="mat-elevation-z8">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input
+      matInput
+      (keyup)="applyFilter($event)"
+      placeholder="Ex. Sports"
+      #input
+    />
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="sent">
+      <th mat-header-cell *matHeaderCellDef>Sent</th>
+      <td mat-cell *matCellDef="let n">{{ n.dateSentString }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef>User</th>
+      <td mat-cell *matCellDef="let n">{{ n.nameUser }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef>Category</th>
+      <td mat-cell *matCellDef="let n">{{ n.descCategory }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="channel">
+      <th mat-header-cell *matHeaderCellDef>Channel</th>
+      <td mat-cell *matCellDef="let n">{{ n.descChannel }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let n">{{ n.descStatus }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator
+    [pageSizeOptions]="[10, 20, 50]"
+    showFirstLastButtons
+    aria-label="Select page of periodic elements"
+  >
+  </mat-paginator>
+</div>

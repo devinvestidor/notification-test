@@ -26,7 +26,7 @@ public abstract class AbstractDAO<T> {
 
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Transactional(readOnly = true)
-    public List<T> findAll() {
+    public List<T> listAll() {
         final CriteriaQuery criteriaQuery = entityManager.getCriteriaBuilder().createQuery();
         criteriaQuery.select(criteriaQuery.from(getModelClass()));
         return entityManager.createQuery(criteriaQuery).getResultList();

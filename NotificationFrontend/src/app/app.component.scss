@@ -1,16 +1,32 @@
 .router-container {
-  width: 80%; /* Define a largura como 80% da largura da tela */
-  margin: 20px auto; /* Margem superior de 20px e centraliza o contêiner horizontalmente */
-  padding: 24px; /* Espaçamento interno de 24px para mais espaço */
-  border-radius: 8px; /* Bordas arredondadas */
-  background-color: #ffffff; /* Cor de fundo branca */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  width: 80%;
+  margin: 20px auto;
+  padding: 24px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
   .router-container {
-    width: 90%; /* Ajusta a largura para 90% em telas menores */
-    margin: 10px auto; /* Margem superior de 10px para telas menores */
-    padding: 16px; /* Espaçamento interno de 16px */
+    width: 90%;
+    margin: 10px auto;
+    padding: 16px;
+  }
+}
+
+::ng-deep .mat-mdc-snack-bar-container.blue-snackbar {
+  --mat-snack-bar-button-color: rgb(169, 169, 252);
+}
+
+::ng-deep .mat-mdc-snack-bar-container.green-snackbar {
+  --mat-snack-bar-button-color: rgb(119, 163, 119);
+}
+
+::ng-deep .mat-mdc-snack-bar-container.orange-snackbar {
+  --mat-snack-bar-button-color: rgb(247, 203, 121);
+
+  ::ng-deep .mat-mdc-snack-bar-container.red-snackbar {
+    --mat-snack-bar-button-color: rgb(233, 105, 105);
   }
 }

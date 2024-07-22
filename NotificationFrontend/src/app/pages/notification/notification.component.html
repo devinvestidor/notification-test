@@ -2,17 +2,23 @@
   <h3>Send Notification</h3>
   <mat-form-field>
     <mat-label>Category</mat-label>
-    <mat-select>
+    <mat-select formControlName="category">
       @for (category of categories; track category) {
-      <mat-option [value]="category.value">{{ category.viewValue }}</mat-option>
+      <mat-option [value]="category.id">{{ category.description }}</mat-option>
       }
     </mat-select>
   </mat-form-field>
 
   <mat-form-field class="full-width">
     <mat-label>Message</mat-label>
-    <textarea matInput placeholder="Ex. Write the message here..."></textarea>
+    <textarea
+      formControlName="message"
+      matInput
+      placeholder="Ex. Write the message here..."
+    ></textarea>
   </mat-form-field>
 
-  <button mat-flat-button>Send Notification</button>
+  <button mat-flat-button (click)="sendNotification()">
+    Send Notification
+  </button>
 </form>

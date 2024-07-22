@@ -3,6 +3,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "strictPropertyInitialization": false,
+    "useDefineForClassFields": false,
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitOverride": true,
@@ -25,7 +27,8 @@
     "baseUrl": "./src",
     "paths": {
       "@env/*": ["environments/*"],
-    }
+    },
+    
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
