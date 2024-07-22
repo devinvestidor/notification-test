@@ -4,6 +4,7 @@ import { LogComponent } from './pages/log/log.component';
 import { AboutComponent } from './pages/about/about.component';
 
 export const routes: Routes = [
+    { path: '', component: NotificationComponent },
     { path: 'notification', component: NotificationComponent },
     { path: 'log', component: LogComponent },
     { path: 'about', component: AboutComponent },
