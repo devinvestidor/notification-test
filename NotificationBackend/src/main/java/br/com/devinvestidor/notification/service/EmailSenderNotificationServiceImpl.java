@@ -3,24 +3,20 @@ package br.com.devinvestidor.notification.service;
 import br.com.devinvestidor.notification.dto.NotificationDTO;
 import br.com.devinvestidor.notification.entity.Channel;
 import br.com.devinvestidor.notification.entity.User;
-import br.com.devinvestidor.notification.exception.WithoutPhoneException;
+import br.com.devinvestidor.notification.exception.WithoutEmailException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-
 @Component
-@Qualifier("smsSenderNofication")
-public class SmsSenderNoficationServiceImpl extends SenderNotificationService {
-
-
-    @Override
+@Qualifier("emailSenderNofication")
+public class EmailSenderNotificationServiceImpl extends SenderNotificationService {
     public void send(NotificationDTO dto) {
         dto.getUserList().forEach(user -> {
             try {
-                if (user.hasNotPhoneNumber()) throw new WithoutPhoneException();
+                if (user.hasNotEmail()) throw new WithoutEmailException();
                 else sendProcess(dto, user);
             } catch (Exception e) {
-                failProcess(dto, user, Channel.SMS);
+                failProcess(dto, user, Channel.EMAIL);
             }
         });
     }
@@ -29,11 +25,9 @@ public class SmsSenderNoficationServiceImpl extends SenderNotificationService {
     public void sendProcess(NotificationDTO dto, User user) {
         try {
             // some Implement here to send...
-            logService.save(getLog(dto, user, Channel.SMS));
+            logService.save(getLog(dto, user, Channel.EMAIL));
         } catch (Exception e) {
-            failProcess(dto, user, Channel.SMS);
+            failProcess(dto, user, Channel.EMAIL);
         }
     }
-
-
 }

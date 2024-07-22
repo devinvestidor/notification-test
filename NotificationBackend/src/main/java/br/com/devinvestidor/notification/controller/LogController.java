@@ -21,7 +21,6 @@ public class LogController extends Controller {
 
     /**
      * TODO
-     * - Testes unitários
      * - README.md
      * - Paged Log
      * - Paged Process

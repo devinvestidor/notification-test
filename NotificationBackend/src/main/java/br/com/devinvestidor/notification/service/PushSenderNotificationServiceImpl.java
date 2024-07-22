@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Qualifier("pushSenderNofication")
-public class PushSenderNoficationServiceImpl extends SenderNotificationService {
+public class PushSenderNotificationServiceImpl extends SenderNotificationService {
     public void send(NotificationDTO dto) {
         dto.getUserList().forEach(user -> {
             try {
