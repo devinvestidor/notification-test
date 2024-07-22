@@ -18,12 +18,4 @@ public class LogController extends Controller {
     public Response listAll() {
         return okList(logService.listAll());
     }
-
-    /**
-     * TODO
-     * - README.md
-     * - Paged Log
-     * - Paged Process
-     */
-
 }

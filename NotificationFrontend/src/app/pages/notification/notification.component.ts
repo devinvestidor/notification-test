@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -14,7 +13,7 @@ import { SnackMessageService } from 'app/shared/services/snack-message.service';
 
 @Component({
   selector: 'app-notification',
-  standalone: true,
+  standalone: true,  
   imports: [ReactiveFormsModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatButtonModule, MatIconModule],
   templateUrl: './notification.component.html',
   styleUrl: './notification.component.scss'
